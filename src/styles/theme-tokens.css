@@ -1,0 +1,39 @@
+/* Dark theme — "Ночной океан" */
+[data-theme="dark"] {
+  --color-bg: #0a1628;
+  --color-surface: #111d33;
+  --color-surface-hover: #162744;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-glow: rgba(59, 130, 246, 0.4);
+  --color-cta: #22c55e;
+  --color-cta-hover: #16a34a;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-success: #22c55e;
+  --color-info: #3b82f6;
+}
+
+/* Light theme — "Море в ясное небо" */
+[data-theme="light"] {
+  --color-bg: #f0f7ff;
+  --color-surface: #ffffff;
+  --color-surface-hover: #e8f0fe;
+  --color-glass: rgba(0, 0, 0, 0.03);
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-glow: rgba(37, 99, 235, 0.3);
+  --color-cta: #16a34a;
+  --color-cta-hover: #15803d;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-error: #dc2626;
+  --color-warning: #d97706;
+  --color-success: #16a34a;
+  --color-info: #2563eb;
+}
