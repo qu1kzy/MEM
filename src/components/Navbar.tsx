@@ -42,7 +42,7 @@ export function Navbar() {
           ) : (
             <Link to="/auth" className="px-5 py-2 text-sm rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-all min-h-[44px] flex items-center font-semibold">Войти</Link>
           )}
-          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--color-text)]" aria-label="Меню" aria-expanded={menuOpen}>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--color-text)]" aria-label="Открыть меню" aria-expanded={menuOpen}>
             {menuOpen ? '✕' : '☰'}
           </button>
         </div>

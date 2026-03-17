@@ -1,8 +1,11 @@
+import { motion } from 'framer-motion';
 import { useToast } from '@/components/ui/ToastContext';
 import { contacts } from '@/data/contacts';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 export function HeroSection() {
   const { toast } = useToast();
+  const reduced = useReducedMotion();
 
   const copyToClipboard = (text: string, message: string) => {
     navigator.clipboard.writeText(text).then(() => toast(message, 'success'));
@@ -11,19 +14,40 @@ export function HeroSection() {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center relative bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-bg)] text-center overflow-hidden pt-24 pb-16 px-4" id="hero">
       <div className="relative z-10 w-full max-w-5xl">
-        <h1 className="text-5xl md:text-7xl font-black text-[var(--color-text)] tracking-wider uppercase mb-3">
+        <motion.h1
+          className="text-5xl md:text-7xl font-black text-[var(--color-text)] tracking-wider uppercase mb-3"
+          initial={reduced ? false : { opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           М<span className="text-[var(--color-primary)]">Э</span>М
-        </h1>
-        <p className="text-lg md:text-xl text-[var(--color-primary)] font-light tracking-widest uppercase mb-10">
+        </motion.h1>
+        <motion.p
+          className="text-lg md:text-xl text-[var(--color-primary)] font-light tracking-widest uppercase mb-10"
+          initial={reduced ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+        >
           Вода · Тепло · Электричество · Автономно
-        </p>
-        <div className="max-w-xl mx-auto rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-2xl mb-10">
+        </motion.p>
+        <motion.div
+          className="max-w-xl mx-auto rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-2xl mb-10"
+          initial={reduced ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+        >
           <img src="/images/product.jpg" alt="Многофункциональный Энергетический Модуль МЭМ" className="w-full h-auto" />
-        </div>
+        </motion.div>
         <div className="flex flex-wrap justify-center gap-4">
-          {contacts.map((c) => (
-            <button key={c.value} onClick={() => copyToClipboard(c.copyText, c.copyMessage)}
-              className="flex items-center gap-2 px-5 py-3 rounded-full bg-[var(--color-glass)] backdrop-blur-sm border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:-translate-y-1 transition-all duration-200 text-[var(--color-text)] min-h-[44px]">
+          {contacts.map((c, i) => (
+            <motion.button
+              key={c.value}
+              onClick={() => copyToClipboard(c.copyText, c.copyMessage)}
+              className="flex items-center gap-2 px-5 py-3 rounded-full bg-[var(--color-glass)] backdrop-blur-sm border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:-translate-y-1 transition-all duration-200 text-[var(--color-text)] min-h-[44px]"
+              initial={reduced ? false : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 + i * 0.1, ease: 'easeOut' }}
+            >
               <span className="text-[var(--color-primary)]">
                 {c.icon === 'phone' && '📞'}
                 {c.icon === 'envelope' && '✉️'}
@@ -31,7 +55,7 @@ export function HeroSection() {
                 {c.icon === 'location' && '📍'}
               </span>
               <span>{c.label}</span>
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>

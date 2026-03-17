@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npx msw:*)",
+      "Bash(npx vite:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git -C /c/Users/c/Desktop/DimaProject remote -v)",
+      "Bash(git remote:*)",
+      "Bash(curl -s -X POST https://api.github.com/repos/qu1kzy/MEM/pulls -H \"Accept: application/vnd.github+json\" -d '{:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vitest:*)"
+    ]
+  }
+}
